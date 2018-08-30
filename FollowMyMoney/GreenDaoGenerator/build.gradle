@@ -1,0 +1,29 @@
+apply plugin: 'java-library'
+apply plugin: 'maven'
+apply plugin:'application'
+
+group = 'org.greenrobot'
+archivesBaseName = 'greendao-generator'
+version = '1.0.0-SNAPSHOT'
+//sourceCompatibility = 1.6
+mainClassName = "generator.GeneratorMain"
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':DaoGenerator')
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+    }
+}
+
+artifacts {
+    archives jar
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
